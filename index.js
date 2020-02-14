@@ -12,3 +12,31 @@ I need this code, but don't know where, perhaps should make some middleware, don
 
 Go code!
 */
+const express = require("express");
+const server = express();
+
+const projectsRoutes = require("./routes/projectsRouter");
+const actionsRoutes = require("./routes/actionsRouter");
+
+server.use(express.json());
+
+
+const port =  5000;
+
+server.listen(port, () => {
+	console.log("listening on ", port);
+});
+
+server.use("/api/projects", projectsRoutes);
+server.use("/api/actions", actionsRoutes);
+
+
+
+server.get("/", (req, res) => {
+    res.send(`<h2>Let's write some code!</h2>`);
+    res.status(200).json({ message: "ok" });
+});
+
+module.exports = server;
+
+
