@@ -40,13 +40,25 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+- express allows applications to be developed faster 
+- express middleware can from third-parties
+
+
 - [ ] Describe Middleware?
+    -middleware is a array of functions that get exectued in order into the server code. 
+    - three different types of middleware 
+        -built in
+        -third-party
+        -custom middleware
 
 - [ ] Describe a Resource?
+    -resource is an object with a type, associated data, relationships to other resources, and a set of methods that operate on it.
 
 - [ ] What can the API return to help clients know if a request was successful?
+    -status codes 
 
 - [ ] How can we partition our application into sub-applications?
+- can use express routes
 
 ## Minimum Viable Product
 

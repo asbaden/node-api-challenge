@@ -25,14 +25,16 @@ router.get("/:id", validateId, (req, res) => {
 
 router.post("/", validateBody, validateProjectId, (req, res) => {
   // do your magic!
-  Actions.insert(req.body)
+  console.log("this is body in post", req.body);
+  Actions.insert(req.body)  
     .then(result => {
       if (result) {
         res.status(200).json(result);
+
       }
     })
     .catch(err => {
-      res.status(500).json({ message: "error" });
+      res.status(500).json({ message: err });
     });
 });
 
@@ -68,6 +70,8 @@ function validateId(req, res, next) {
   // do your magic!
   console.log(req.params.id);
 
+  
+  
   Actions.get(req.params.id)
 
     .then(data => {
@@ -85,9 +89,10 @@ function validateId(req, res, next) {
 function validateProjectId(req, res, next) {
   // do your magic!
 
+ 
   Projects.get(req.body.project_id)
     .then(data => {
-      console.log("this is project id", req.body.project_id);
+      console.log("this is project id", req.body);
       if (data) {
         req.project = data;
         next();
